@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <title> </title>
+    </head>
+    <style>
+        .h1 {}
+    </style>
+
+    <body>
+        <center>
+            <h1>Binary BBQ </h1>
+            <h2>Select An Entree</h2> <button type="button" onclick="bbqOrder.push('Burger')"> Burger</button> <button type="button" onclick="bbqOrder.push('HotDog')"> Hot Dog</button> <button type="button" onclick="bbqOrder.push('Bratwurst')"> Bratwurst</button> <button type="button"
+                onclick="bbqOrder.push('VeggieBurger')"> Veggie Burger</button> <button type="button" onclick="bbqOrder.push('Burger')"> Cheeseburger</button> </center>
+    </body>
+    <script>
+        var bbqOrder = ["Burger"];
+
+        function display() {
+            for (var i = 0; i < bbqOrder.length; i++) {
+                document.write(bbqOrder[i] + "<br>");
+                consele.log(bbqOrder[i] + "<br>");
+            }
+        }
+    </script>
+    <!--TODO Figure out how to put this in it's own .JS file -->
+
+</html>
