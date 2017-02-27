@@ -10,8 +10,8 @@
     </head>
     <style>
         body {
-          font-family: 'Open Sans Condensed', sans-serif;
-          text-transform: uppercase;
+            font-family: 'Open Sans Condensed', sans-serif;
+            text-transform: uppercase;
         }
         h1 {
             font-family: 'Open Sans Condensed', sans-serif;
@@ -21,7 +21,6 @@
             font-variant: normal;
             font-weight: 100;
             padding-top: 200;
-
         }
 
         h2 {
@@ -66,27 +65,27 @@
                 <br>
 
                 <div>
-                    <h3 id="order">
-                      NO ITEMS ORDERED SO FAR
+                    <p id="order">
+                        YOUR ORDER
+                    </p>
 
-                    </h3>
+                    <p id="order_list"></p>
                     <br/>
                     <hr/>
                     <br/>
                 </div>
+                <button type="button" id="displayOrder" onclick="addToOrder()">DISPLAY ORDER</button>
+                <br />
+                <br />
 
                 <button type="button" id="submitorder" onclick="showorder()">SUBMIT ORDER</button>
                 <br>
                 <br>
-                <button type="button" id="displayTable">
-                  DISPLAY TABLE
-
-                </button>
 
             </center>
         </body>
         <script>
-            var bbqOrder = []
+            var bbqOrder = [];
 
             function display() {
                 for (var i = 0; i < bbqOrder.length; i++) {
@@ -95,26 +94,26 @@
                 }
             }
 
-            function showorder() {
+            function addToOrder() {
 
-                for (var i = 0; i < bbqOrder.length; i++) {
-                    document.write(bbqOrder[i] + "<br/>");
-                    console.log(bbqOrder[i] + "<br/>");
+                document.getElementById("order").innerHTML = "Your order:";
+
+
+                for (var i = lastitemOfList; i < bbqOrder.length; i++) {
+                    var para = document.createElement("P");
+                    var t = document.createTextNode(bbqOrder[i]);
+                    para.appendChild(t);
+                    document.getElementById("order_list").appendChild(para);
+                    endOfList++;
+
+
                 }
-                document.getElementById("order").innerHTML = "DISPLAY ALL ITEMS HERE";
+
 
             }
+            function showOrder() {
 
-            <!-- is this jquery?-->
-
-            $function() {
-              $('table').on('click', function() {
-                var tableClone = $.clone(this);
-                var stage = $('#displayTable');
-                stage.prop('innerHTML', '');
-                $(tableClone).appendTo(stage);
-              });
-            })
+            }
         </script>
 
         <!--TODO Figure out how to put this in it's own .JS file -->
