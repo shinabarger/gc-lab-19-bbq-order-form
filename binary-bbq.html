@@ -13,14 +13,15 @@
             font-family: 'Open Sans Condensed', sans-serif;
             text-transform: uppercase;
         }
-        h1 {
+        .header {
             font-family: 'Open Sans Condensed', sans-serif;
-            font-size: 5em;
+            font-size: 7em;
             line-height: 70px;
             font-style: normal;
             font-variant: normal;
-            font-weight: 100;
-            padding-top: 200;
+            font-weight: 150;
+            margin-top: 5px;
+            margin-bottom: 30px;
         }
 
         h2 {
@@ -41,32 +42,42 @@
             margin-right: 5em;
             margin-top: -15px;
         }
+        .logo {
+            height: 10em;
+            padding-top: 200;
+            padding-bottom: 5;
+
+        }
 
     </style>
 
     <body>
+
         <center>
             <center>
-                <h1 class="header">BINARY BBQ</h1>
+
+                <img class="logo" src=http://i.imgur.com/tG3f9UB.jpg/>
+                <p class="header">BINARY BBQ</p>
+
                 <hr/>
                 <h2>SELECT AN ENTREE</h2>
-                <button type="button" onclick="bbqOrder.push('Burger')" id="burger">
+                <button type="button" onclick="bbqOrder.push('Burger'); addToOrder();" id="burger">
                     Burger</button>
-                <button type="button" onclick="bbqOrder.push('HotDog')" id="hotdog">
+                <button type="button" onclick="bbqOrder.push('HotDog'); addToOrder();" id="hotdog">
                     Hot Dog</button>
-                <button type="button" onclick="bbqOrder.push('Bratwurst')" id="bratwurst">
+                <button type="button" onclick="bbqOrder.push('Bratwurst'); addToOrder();" id="bratwurst">
                     Bratwurst</button>
-                <button type="button" onclick="bbqOrder.push('VeggieBurger')" id="veggieburger">
+                <button type="button" onclick="bbqOrder.push('VeggieBurger'); addToOrder();" id="veggieburger">
                     Veggie Burger
                 </button>
-                <button type="button" onclick="bbqOrder.push('cheeseburger')" id="cheeseburger">
+                <button type="button" onclick="bbqOrder.push('cheeseburger'); addToOrder();" id="cheeseburger">
                     Cheeseburger</button>
                 <br>
                 <br>
 
                 <div>
                     <p id="order">
-                        YOUR ORDER
+                        YOUR ORDER:
                     </p>
 
                     <p id="order_list"></p>
@@ -74,13 +85,12 @@
                     <hr/>
                     <br/>
                 </div>
-                <button type="button" id="displayOrder" onclick="addToOrder()">DISPLAY ORDER</button>
-                <br />
-                <br />
 
-                <button type="button" id="submitorder" onclick="showorder()">SUBMIT ORDER</button>
+                <button type="button" id="submitorder" onclick="submitOrder()">SUBMIT ORDER</button>
                 <br>
                 <br>
+                <button type="button" id="clearOrder" onclick="cancel()">CANCEL</button>
+                <br/>
 
             </center>
         </body>
@@ -98,21 +108,27 @@
 
                 document.getElementById("order").innerHTML = "Your order:";
 
-
-                for (var i = lastitemOfList; i < bbqOrder.length; i++) {
+                for (var i = 0; i < bbqOrder.length; i++) {
                     var para = document.createElement("P");
                     var t = document.createTextNode(bbqOrder[i]);
                     para.appendChild(t);
                     document.getElementById("order_list").appendChild(para);
-                    endOfList++;
-
 
                 }
 
-
             }
-            function showOrder() {
+            function submitOrder() {}
 
+            function cancel() {
+                document.getElementById("order").innerHTML = "YOUR ORDER: ";
+                for (i = bbqOrder.length; i > 0; i--) {
+                    bbqOrder.pop();
+                    var para = document.createElement("P");
+
+                }
+                var t = document.createTextNode("Your order has been cleared.");
+                para.appendChild(t);
+                document.getElementById("order_list").appendChild(para);
             }
         </script>
 
