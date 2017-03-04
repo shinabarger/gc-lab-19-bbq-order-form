@@ -12,11 +12,12 @@
         body {
             font-family: 'Open Sans Condensed', sans-serif;
             text-transform: uppercase;
+            margin-top: 50px;
         }
         .header {
             font-family: 'Open Sans Condensed', sans-serif;
             font-size: 7em;
-            line-height: 70px;
+            line-height: 90px;
             font-style: normal;
             font-variant: normal;
             font-weight: 150;
@@ -104,10 +105,12 @@
                 }
             }
 
+            //got larry's help to fix the code so it doesn't print things multiple times in the display
+
             function addToOrder() {
 
                 document.getElementById("order").innerHTML = "Your order:";
-
+                document.getElementById("order_list").innerHTML = "";
                 for (var i = 0; i < bbqOrder.length; i++) {
                     var para = document.createElement("P");
                     var t = document.createTextNode(bbqOrder[i]);
@@ -115,7 +118,6 @@
                     document.getElementById("order_list").appendChild(para);
 
                 }
-
             }
             function submitOrder() {}
 
